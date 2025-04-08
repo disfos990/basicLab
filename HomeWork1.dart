@@ -1,3 +1,5 @@
+import 'dart:io';
+
 int sum(int number) {
   if (number <= 0) return number;
 
@@ -11,9 +13,10 @@ int sum(int number) {
 }
 
 void main() {
-  print(sum(123));
-  print(sum(5));
-  print(sum(-1));
-  print(sum(-123));
-  print(sum(345321));
+  String? input = stdin.readLineSync();
+
+  if (input != null) {
+    int number = int.tryParse(input) ?? 0;
+    print(sum(number));
+  }
 }
